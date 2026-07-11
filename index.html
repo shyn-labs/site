@@ -42,10 +42,6 @@
       rgba(255,237,184,.55) 16%, rgba(255,214,120,.32) 24%, rgba(255,214,120,.16) 34%,
       rgba(255,214,120,.07) 46%, rgba(255,214,120,.025) 58%, transparent 72%); }
   @keyframes breathe { 50% { transform:scale(1.045); } }
-  #moon { position:fixed; z-index:1; top:12vh; right:11vw; width:60px; height:60px; border-radius:50%;
-    background:radial-gradient(circle at 62% 38%, #f4f6fb 0%, #cfd6e6 60%, #aab3c9 100%);
-    box-shadow:inset -13px 8px 0 2px #10131e, 0 0 40px 10px rgba(220,228,255,.10);
-    opacity:0; transition:opacity 1.2s ease; pointer-events:none; }
 
   .act { position:relative; z-index:2; max-width:1120px; margin:0 auto; padding:0 56px; }
   .kicker { font-size:11px; letter-spacing:.32em; text-transform:uppercase; font-weight:600; }
@@ -64,7 +60,21 @@
     border-bottom:2.5px solid rgba(58,53,44,.75); font-size:11.5px; letter-spacing:.13em; text-transform:uppercase; color:#6d6553; }
   .masthead .vol { font-family:'Fraunces',Georgia,serif; font-style:italic; text-transform:none; letter-spacing:0; font-size:13px; }
 
-  .hero { min-height:96vh; position:relative; display:flex; flex-direction:column; justify-content:center; }
+  .hero { min-height:96vh; position:relative; display:flex; align-items:center; justify-content:space-between; gap:48px; }
+  .hero-left { display:flex; flex-direction:column; max-width:560px; }
+  .popcard { width:330px; flex-shrink:0; background:rgba(255,255,255,.62); backdrop-filter:blur(26px); -webkit-backdrop-filter:blur(26px);
+    border:1px solid rgba(58,53,44,.14); border-radius:22px; padding:20px 20px 14px;
+    box-shadow:0 30px 80px rgba(120,90,20,.18), inset 0 1px 0 rgba(255,255,255,.9);
+    font-size:13px; color:#3a352c; transform:rotate(1.8deg);
+    animation:float 7s ease-in-out infinite; }
+  @keyframes float { 50% { transform:rotate(1.8deg) translateY(-9px); } }
+  .popcard .hd { display:flex; justify-content:space-between; align-items:center; margin-bottom:12px; }
+  .popcard .hd b { font-size:15px; }
+  .popcard .pill { font-size:9.5px; font-weight:700; letter-spacing:.08em; color:#4a7c3f; background:#e4f2df; border-radius:99px; padding:4px 10px; }
+  .popcard .seclab { font-size:9.5px; letter-spacing:.18em; color:#a08e68; margin:12px 0 2px; text-transform:uppercase; font-weight:600; }
+  .popcard .row { display:flex; justify-content:space-between; padding:7px 0; color:#5c5545; border-top:1px solid rgba(58,53,44,.07); }
+  .popcard .row b { color:#2e2a22; font-weight:600; }
+  .popcard .row .dot { color:#63a15a; margin-right:8px; }
   .hero h1 { font-weight:560; font-size:clamp(52px,7.4vw,108px); line-height:.96; color:#2e2a22; }
   .hero h1 em { font-style:italic; font-weight:400; color:#c98a2d; }
   .hero .sub { font-size:18.5px; line-height:1.55; color:#6d6553; max-width:470px; margin:32px 0 40px; }
@@ -188,32 +198,46 @@
     #sunwrap .disc { width:420px; height:420px; left:-210px; top:-210px; }
     .install { flex-wrap:wrap; gap:10px; padding:10px 14px; }
     .install code { font-size:12.5px; }
+    .hero { flex-direction:column; justify-content:center; align-items:flex-start; gap:36px; padding-top:8vh; }
+    .popcard { width:100%; max-width:330px; transform:none; }
   }
 
   @media (prefers-reduced-motion: reduce) {
     html { scroll-behavior:auto; }
     .rv, .entry { opacity:1 !important; transform:none !important; transition:none !important; }
-    #sunwrap .disc, .scrollcue i, .stars { animation:none !important; }
+    #sunwrap .disc, .scrollcue i, .stars, .popcard { animation:none !important; }
   }
 </style>
 </head>
 <body>
 <div class="grain"></div>
 <div id="sunwrap" aria-hidden="true"><div class="disc"></div></div>
-<div id="moon" aria-hidden="true"></div>
 
 <!-- ACT I · DAWN -->
 <section class="act">
   <div class="masthead"><span>Est. 2026 · macOS · Apple Silicon</span><span class="vol">Vol. <span data-version></span> — the current release</span><span>Price: nothing. Ever.</span></div>
   <div class="hero">
-    <p class="kicker rv" style="color:#c98a2d">100% local · encrypted · nothing phones home</p>
-    <h1 class="rv d1" style="margin-top:24px">Your days,<br><em>remembered.</em></h1>
-    <p class="sub rv d2">Every page you read, every meeting you sit through, every note you scribble — encrypted on your Mac, recalled by your AI. Nobody else, ever.</p>
-    <div class="install rv d3">
-      <code><span class="dollar">$</span> <span id="install-cmd">brew install --cask shyn-labs/shyn/shyn</span></code>
-      <button id="copybtn" aria-label="Copy install command">Copy</button>
+    <div class="hero-left">
+      <p class="kicker rv" style="color:#c98a2d">100% local · encrypted · nothing phones home</p>
+      <h1 class="rv d1" style="margin-top:24px">Your days,<br><em>remembered.</em></h1>
+      <p class="sub rv d2">Every page you read, every meeting you sit through, every note you scribble — encrypted on your Mac, recalled by your AI. Nobody else, ever.</p>
+      <div class="install rv d3">
+        <code><span class="dollar">$</span> <span id="install-cmd">brew install --cask shyn-labs/shyn/shyn</span></code>
+        <button id="copybtn" aria-label="Copy install command">Copy</button>
+      </div>
+      <p class="after rv d3">then <code>shyn setup</code>. the sun rises in your menu bar.</p>
     </div>
-    <p class="after rv d3">then <code>shyn setup</code>. the sun rises in your menu bar.</p>
+    <aside class="popcard rv d2" aria-label="The shyn menu bar popover">
+      <div class="hd"><b>shyn</b><span class="pill">ALL SYSTEMS GO</span></div>
+      <div class="seclab">Health</div>
+      <div class="row"><span><span class="dot">●</span>Daemon</span><b data-version></b></div>
+      <div class="row"><span><span class="dot">●</span>Screen capture</span><b>just now</b></div>
+      <div class="row"><span><span class="dot">●</span>Meeting agent</span><b>idle</b></div>
+      <div class="seclab">This week</div>
+      <div class="row"><span>Pages read</span><b>834</b></div>
+      <div class="row"><span>Meetings</span><b>3 · 71 min</b></div>
+      <div class="row"><span>Searches</span><b>2</b></div>
+    </aside>
     <div class="scrollcue"><i></i>scroll — the day begins</div>
   </div>
 </section>
@@ -352,7 +376,6 @@ btn.addEventListener('click', async () => {
 
 // travelling sun (skipped entirely under reduced motion — CSS keeps it at rest)
 const sun = document.getElementById('sunwrap');
-const moon = document.getElementById('moon');
 const disc = sun.querySelector('.disc');
 const lerp = (a, b, t) => a + (b - a) * t;
 const mix = (c1, c2, t) => c1.map((v, i) => Math.round(lerp(v, c2[i], t)));
@@ -376,7 +399,6 @@ function frame() {
     ${rgba(cMid,.55)} 16%, ${rgba(cGlow,.32)} 24%, ${rgba(cGlow,.16)} 34%,
     ${rgba(cGlow,.07)} 46%, ${rgba(cGlow,.025)} 58%, transparent 72%)`;
   sun.style.opacity = String(Math.max(0, 1 - Math.max(0, t.p - .72) * 6));
-  moon.style.opacity = t.p > .8 ? '1' : '0';
   requestAnimationFrame(frame);
 }
 if (reduced) {
