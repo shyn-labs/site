@@ -131,6 +131,12 @@
   .manual aside .box { background:rgba(255,253,246,.7); border:1px solid rgba(58,53,44,.14); border-radius:16px; padding:20px 22px; margin-bottom:16px; }
   .manual aside h3 { font-family:'Newsreader',Georgia,serif; font-size:16.5px; font-weight:700; margin-bottom:8px; }
   .manual aside code { font-size:12px; background:rgba(58,53,44,.06); border-radius:6px; padding:2px 6px; }
+  .manual aside .clients { display:flex; flex-direction:column; gap:6px; margin:10px 0; }
+  .manual aside .clients div { font-size:12.5px; }
+  .manual aside .snippet { font-family:ui-monospace,'SF Mono',Menlo,monospace; font-size:10.5px; line-height:1.5;
+    background:rgba(58,53,44,.06); border-radius:8px; padding:9px 11px; margin:4px 0 6px;
+    white-space:pre-wrap; word-break:break-all; color:#4a453a; }
+  .manual aside .fda { font-size:11.5px; color:#8a7f6a; font-style:italic; }
 
   .gold { min-height:90vh; display:flex; flex-direction:column; justify-content:center; align-items:flex-end; padding:20vh 0 10vh; }
   .gold .wrap { max-width:660px; width:100%; }
@@ -293,7 +299,19 @@
     </div>
     <aside class="rv d1">
       <div class="box"><h3>The menu bar is the manual</h3>Click the ☀️: service health, index size, this week's numbers, pause buttons, a live meeting banner with Stop / Cancel, and a first-run checklist that walks every permission with deep links into System Settings.</div>
-      <div class="box"><h3>Connect your AI</h3>Claude Code: <code>claude mcp add shyn</code> — printed for you by setup. Claude Desktop: drag in <code>shyn.mcpb</code>. Five tools appear: <code>search_memory</code>, <code>recent_activity</code>, <code>remember</code>, <code>forget</code>, <code>memory_status</code>.</div>
+      <div class="box"><h3>Connect your AI — any of them</h3>shyn speaks <b>MCP</b>, the open protocol. Anything that runs local MCP servers connects:
+        <div class="clients">
+          <div><b>Claude Code</b> — <code>claude mcp add shyn</code> (printed by setup)</div>
+          <div><b>Claude Desktop</b> — drag in <code>shyn.mcpb</code></div>
+          <div><b>Cursor / Windsurf</b> — add to <code>~/.cursor/mcp.json</code>:</div>
+        </div>
+        <pre class="snippet">{ "mcpServers": { "shyn": { "command":
+  "~/Library/Application Support/shyn/bin/shyn-mcp" } } }</pre>
+        <div class="clients">
+          <div><b>VS Code</b> (agent mode), <b>Zed</b>, <b>Gemini CLI</b>, <b>Raycast</b> — same command, their config file.</div>
+        </div>
+        Five tools appear either way: <code>search_memory</code>, <code>recent_activity</code>, <code>remember</code>, <code>forget</code>, <code>memory_status</code>.
+        <div class="fda" style="margin-top:10px">ChatGPT is the one exception — it only accepts <em>remote</em> MCP servers, and shyn will never tunnel your memory through someone's cloud.</div></div>
     </aside>
   </div>
 </section>
@@ -304,7 +322,7 @@
     <div class="wrap">
       <p class="kicker rv" style="color:#a6742e">golden hour</p>
       <h2 class="rv d1" style="margin-top:16px">Then you ask,<br>and it's simply there.</h2>
-      <p class="lead rv d2">Claude queries shyn over MCP — on-device, instantly. Your memory becomes its context.</p>
+      <p class="lead rv d2">Your AI queries shyn over MCP — on-device, instantly. Your memory becomes its context.</p>
       <div class="term rv d3">
         <div class="bar"><i></i><i></i><i></i></div>
         <pre id="termtext" aria-label="Terminal demo: Claude recalling a memory"></pre>
@@ -344,7 +362,7 @@
     <div class="steps">
       <div class="step rv d1"><div class="n">i.</div><h4>Install</h4><p><code>brew install --cask shyn-labs/tap/shyn</code><br>Homebrew checks the sha256. Apple Silicon, pre-alpha, honestly self-signed.</p></div>
       <div class="step rv d2"><div class="n">ii.</div><h4>Set up</h4><p><code>shyn setup</code> starts everything and walks you through permissions — the ☀️ shows a live checklist. If macOS doesn't list an app, add it from <code>~/Library/Application Support/shyn/bin</code>.</p></div>
-      <div class="step rv d3"><div class="n">iii.</div><h4>Connect your AI</h4><p><code>claude mcp add shyn</code> — one printed command. From then on, Claude just remembers.</p></div>
+      <div class="step rv d3"><div class="n">iii.</div><h4>Connect your AI</h4><p>Claude, Cursor, VS Code, Zed, Gemini CLI — one config line each (shyn speaks MCP, the open protocol). From then on, your AI just remembers.</p></div>
     </div>
 
     <p class="fine rv">Fine print, honestly: shyn is pre-alpha. The apps are self-signed and re-signed locally by <span class="mono">shyn setup</span>, which also clears the download quarantine with your consent — Apple-notarized one-click installs are on the roadmap. Screen and audio capture need permissions macOS will ask you for; shyn's popover explains each one before you grant it.</p>
