@@ -1,0 +1,5 @@
+# shyn.day — a register of your days
+User-agent: *
+Allow: /
+
+Sitemap: https://shyn.day/sitemap.xml
