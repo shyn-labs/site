@@ -1,6 +1,6 @@
 # shyn.day
 
-The website for [shyn](https://github.com/shyn-labs/homebrew-shyn) — a
+The website for [shyn](https://github.com/shyn-labs/shyn) — a
 register of your days. One self-contained page: no build step, no
 third-party requests, no analytics. Fonts are self-hosted (Fraunces,
 latin subset). Deployed via GitHub Pages to https://shyn.day.
