@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>the shyn daybook</title>
+<meta name="description" content="Entries from the making of shyn — a local-first memory for your Mac.">
+<link rel="canonical" href="https://shyn.day/blog/">
+<meta property="og:title" content="the shyn daybook">
+<meta property="og:description" content="Entries from the making of shyn — a local-first memory for your Mac.">
+<meta property="og:url" content="https://shyn.day/blog/">
+<meta property="og:type" content="website">
+<meta name="theme-color" content="#fffdf6" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#10131e" media="(prefers-color-scheme: dark)">
+<link rel="icon" href="/assets/mark.svg" type="image/svg+xml">
+<link rel="alternate" type="application/rss+xml" title="the shyn daybook" href="/blog/feed.xml">
+<style>
+  @font-face { font-family:'Newsreader'; src:url('/fonts/newsreader.woff2') format('woff2');
+    font-weight:200 800; font-style:normal; font-display:swap; }
+  @font-face { font-family:'Newsreader'; src:url('/fonts/newsreader-italic.woff2') format('woff2');
+    font-weight:200 800; font-style:italic; font-display:swap; }
+  * { margin:0; padding:0; box-sizing:border-box; }
+  a { color:inherit; }
+  body { font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif; color:#3a352c;
+    background:linear-gradient(180deg,#fffdf6 0%,#fff3d6 6%,#f7f2e6 16%,#f4efe3 60%,#f0e9d6 85%,#f6e3b8 100%);
+    min-height:100vh; }
+  .grain { position:fixed; inset:0; pointer-events:none; opacity:.05; z-index:50;
+    background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='140' height='140'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2'/%3E%3C/filter%3E%3Crect width='140' height='140' filter='url(%23n)' opacity='1'/%3E%3C/svg%3E"); }
+  .act { max-width:720px; margin:0 auto; padding:0 24px; }
+  .masthead { display:flex; justify-content:space-between; align-items:baseline; padding:20px 0 10px; gap:14px;
+    border-bottom:2.5px solid rgba(58,53,44,.75); font-size:11.5px; letter-spacing:.13em; text-transform:uppercase; color:#6d6553; }
+  .masthead a { text-decoration:none; }
+  .masthead .vol { font-family:'Newsreader',Georgia,serif; font-style:italic; text-transform:none; letter-spacing:0; font-size:13px; }
+  h1 { font-family:'Newsreader',Georgia,serif; font-weight:560; font-size:clamp(38px,6vw,58px);
+    letter-spacing:-.02em; line-height:1.02; color:#2e2a22; margin:70px 0 8px; }
+  h1 em { font-style:italic; font-weight:400; color:#c98a2d; }
+  .sub { font-size:16px; color:#6d6553; margin-bottom:56px; }
+  .sub a { color:#a6742e; }
+  .entry { display:block; text-decoration:none; color:inherit; padding:26px 22px;
+    background:rgba(255,253,246,.68); border:1px solid rgba(49,56,63,.09); border-radius:18px;
+    box-shadow:0 18px 50px rgba(49,56,63,.10), inset 0 1px 0 rgba(255,255,255,.85);
+    transition:transform .25s ease, box-shadow .25s ease; }
+  .entry:hover { transform:translateY(-3px); box-shadow:0 26px 60px rgba(49,56,63,.14), inset 0 1px 0 rgba(255,255,255,.85); }
+  .entry + .entry { margin-top:18px; }
+  .entry .no { font-size:10.5px; letter-spacing:.28em; text-transform:uppercase; font-weight:600; color:#c98a2d; }
+  .entry h2 { font-family:'Newsreader',Georgia,serif; font-weight:620; font-size:26px; color:#2e2a22; margin:8px 0 8px; letter-spacing:-.01em; }
+  .entry p { font-size:14.5px; line-height:1.6; color:#6d6553; }
+  .entry .date { display:block; margin-top:14px; font-size:11.5px; letter-spacing:.13em; text-transform:uppercase; color:#a08e68; }
+  footer { display:flex; justify-content:space-between; gap:14px; flex-wrap:wrap; padding:26px 0 40px; margin-top:90px;
+    border-top:2.5px solid rgba(58,53,44,.6); font-size:12px; letter-spacing:.1em; text-transform:uppercase; color:#6d6553; }
+  footer a { text-decoration:none; }
+</style>
+</head>
+<body>
+<div class="grain"></div>
+<div class="act">
+  <div class="masthead">
+    <span><a href="/">☀️ shyn</a></span>
+    <span class="vol">the daybook</span>
+    <span>All entries confidential.</span>
+  </div>
+
+  <h1>the <em>daybook</em></h1>
+  <p class="sub">Entries from the making of shyn. Sporadic, honest, local-first. Subscribe by <a href="/blog/feed.xml">RSS</a>.</p>
+
+  <a class="entry" href="/blog/why-shyn-exists/">
+    <span class="no">entry no. 002</span>
+    <h2>why shyn exists</h2>
+    <p>Your AI is brilliant and amnesiac. Your life happens on your Mac all day and lands nowhere. What shyn captures, how it recalls, and what it refuses to do.</p>
+    <span class="date">22 July 2026</span>
+  </a>
+
+  <a class="entry" href="/blog/shyn-caught-us-staging-its-own-demo/">
+    <span class="no">entry no. 001</span>
+    <h2>shyn caught us staging its own demo</h2>
+    <p>We built a fictional person so our screenshots wouldn't expose a real one. Then we asked our AI a question with the real shyn still connected, and it told on us.</p>
+    <span class="date">22 July 2026</span>
+  </a>
+
+  <footer>
+    <span>☀️ shyn — a register of your days</span>
+    <span><a href="/">home</a> · <a href="/blog/feed.xml">rss</a> · <a href="https://github.com/shyn-labs/shyn">github</a> · <a href="mailto:hello@shyn.day">hello@shyn.day</a></span>
+  </footer>
+</div>
+</body>
+</html>

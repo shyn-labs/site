@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>why shyn exists — the shyn daybook</title>
+<meta name="description" content="Your AI is brilliant and amnesiac. Your life happens on your Mac all day. shyn is the register between the two — encrypted on your disk, recalled over MCP, nothing phoning home.">
+<link rel="canonical" href="https://shyn.day/blog/why-shyn-exists/">
+<meta property="og:title" content="why shyn exists">
+<meta property="og:description" content="Your AI is brilliant and amnesiac. Your life happens on your Mac all day. shyn is the register between the two.">
+<meta property="og:url" content="https://shyn.day/blog/why-shyn-exists/">
+<meta property="og:type" content="article">
+<meta property="og:image" content="https://shyn.day/blog/why-shyn-exists/promise-redwood.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="theme-color" content="#fffdf6" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#10131e" media="(prefers-color-scheme: dark)">
+<link rel="icon" href="/assets/mark.svg" type="image/svg+xml">
+<link rel="alternate" type="application/rss+xml" title="the shyn daybook" href="/blog/feed.xml">
+<style>
+  @font-face { font-family:'Newsreader'; src:url('/fonts/newsreader.woff2') format('woff2');
+    font-weight:200 800; font-style:normal; font-display:swap; }
+  @font-face { font-family:'Newsreader'; src:url('/fonts/newsreader-italic.woff2') format('woff2');
+    font-weight:200 800; font-style:italic; font-display:swap; }
+  * { margin:0; padding:0; box-sizing:border-box; }
+  a { color:inherit; }
+  body {
+    font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif; color:#3a352c;
+    background:linear-gradient(180deg,#fffdf6 0%,#fff3d6 5%,#f7f2e6 12%,#f4efe3 55%,#f0e9d6 78%,#f6e3b8 92%,#f3c87f 100%);
+  }
+  .grain { position:fixed; inset:0; pointer-events:none; opacity:.05; z-index:50;
+    background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='140' height='140'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2'/%3E%3C/filter%3E%3Crect width='140' height='140' filter='url(%23n)' opacity='1'/%3E%3C/svg%3E"); }
+  .act { max-width:720px; margin:0 auto; padding:0 24px; }
+  .masthead { display:flex; justify-content:space-between; align-items:baseline; padding:20px 0 10px; gap:14px;
+    border-bottom:2.5px solid rgba(58,53,44,.75); font-size:11.5px; letter-spacing:.13em; text-transform:uppercase; color:#6d6553; }
+  .masthead a { text-decoration:none; }
+  .masthead .vol { font-family:'Newsreader',Georgia,serif; font-style:italic; text-transform:none; letter-spacing:0; font-size:13px; }
+  .kicker { font-size:11px; letter-spacing:.32em; text-transform:uppercase; font-weight:600; color:#c98a2d; margin-top:64px; }
+  h1 { font-family:'Newsreader',Georgia,serif; font-optical-sizing:auto; letter-spacing:-.02em;
+    font-weight:560; font-size:clamp(38px,6vw,58px); line-height:1.04; color:#2e2a22; margin:14px 0 10px; }
+  h1 em { font-style:italic; font-weight:400; color:#c98a2d; }
+  .dateline { font-size:12.5px; letter-spacing:.13em; text-transform:uppercase; color:#a08e68; margin-bottom:44px; }
+  article { font-size:17px; line-height:1.72; color:#4a453a; }
+  article p { margin:0 0 22px; }
+  article h2 { font-family:'Newsreader',Georgia,serif; font-weight:620; font-size:27px; color:#2e2a22;
+    letter-spacing:-.01em; margin:46px 0 14px; }
+  article strong { color:#2e2a22; }
+  article ul { margin:0 0 22px 22px; }
+  article li { margin-bottom:10px; }
+  article code { font-family:ui-monospace,'SF Mono',Menlo,Consolas,monospace; font-size:.86em;
+    background:rgba(58,53,44,.07); border-radius:6px; padding:2px 6px; }
+  blockquote { font-family:'Newsreader',Georgia,serif; font-style:italic; font-size:19px; line-height:1.6;
+    color:#6d6553; border-left:3px solid #e2b96e; padding:2px 0 2px 22px; margin:0 0 22px; }
+  figure { margin:34px 0; }
+  figure img { width:100%; height:auto; display:block; border-radius:16px;
+    border:1px solid rgba(58,53,44,.14); box-shadow:0 24px 70px rgba(120,90,20,.14); }
+  figcaption { font-size:13px; color:#a08e68; margin-top:12px; line-height:1.55; text-align:center; }
+  .install { display:flex; align-items:center; justify-content:center; gap:16px; margin:40px 0;
+    background:rgba(255,255,255,.72); border:1px solid rgba(58,53,44,.13); border-radius:16px; padding:16px 22px;
+    box-shadow:0 12px 40px rgba(120,90,20,.13), inset 0 1px 0 rgba(255,255,255,.9); }
+  .install code { background:none; padding:0; font-size:15px; }
+  .install code .dollar { color:#c98a2d; }
+  footer { display:flex; justify-content:space-between; gap:14px; flex-wrap:wrap; padding:26px 0 40px; margin-top:70px;
+    border-top:2.5px solid rgba(58,53,44,.6); font-size:12px; letter-spacing:.1em; text-transform:uppercase; color:#6d6553; }
+  footer a { text-decoration:none; }
+  @media (max-width:560px){ article{font-size:16px} .masthead{font-size:9.5px} }
+</style>
+</head>
+<body>
+<div class="grain"></div>
+<div class="act">
+  <div class="masthead">
+    <span><a href="/">☀️ shyn</a></span>
+    <span class="vol"><a href="/blog/">the daybook</a></span>
+    <span>All entries confidential.</span>
+  </div>
+
+  <p class="kicker">entry no. 002</p>
+  <h1>why <em>shyn</em> exists</h1>
+  <p class="dateline">22 July 2026 · the shyn daybook</p>
+
+  <article>
+    <p>Your AI is brilliant and amnesiac. It can reason about anything except what happened to you today. Meanwhile your actual life — the article that changed your mind, the number agreed on the call, the thing you swore you'd send by Thursday — scrolls past on your Mac's screen all day and lands nowhere. By Sunday night you are asking yourself what you even did this week, and neither you nor the world's smartest software has an answer.</p>
+
+    <p>The tools that promised to fix this mostly asked for the same payment: your life, uploaded. Recording everything you see and sending it to someone else's computer is a trade shyn's maker wasn't willing to make — and building it locally turned out not to require the trade at all. Modern Macs can run the whole loop on-device: capture, transcribe, embed, search. So that is what shyn does.</p>
+
+    <blockquote>shyn is a register of your days: everything you read, hear, and write, encrypted on your own disk, recalled by whatever AI you point at it. Nothing phones home.</blockquote>
+
+    <h2>What it captures</h2>
+
+    <ul>
+      <li><strong>Your screen.</strong> A featherweight agent reads the text you actually look at — articles, dashboards, code review, the Figma frame you argued about — via OCR and accessibility APIs. It skips password fields, skips apps you exclude, and pauses when you tell it to.</li>
+      <li><strong>Your meetings.</strong> Call detection, both sides recorded locally, transcribed on-device with Whisper into a speaker-labeled transcript. The audio is purged the moment the text lands — words in, bytes gone.</li>
+      <li><strong>Your trail.</strong> Chrome and Safari history and Apple Notes flow in automatically; files and PDFs when you ask (<code>shyn ingest</code>).</li>
+    </ul>
+
+    <h2>How it recalls</h2>
+
+    <p>Everything is chunked, embedded on-device, and indexed twice — keyword (FTS5/BM25) and semantic — inside an encrypted SQLite database keyed from your Keychain. Ask in whatever words you have left at the end of the day; hybrid search does the rest, in milliseconds, over a local socket:</p>
+
+    <figure>
+      <img src="promise-redwood.png" alt="Terminal: shyn search for a client promise returning the scoping note and the meeting transcript" loading="lazy">
+      <figcaption>You don't need the right keywords. “what did I promise” finds a promise.</figcaption>
+    </figure>
+
+    <figure>
+      <img src="css-trick.png" alt="Terminal: shyn search css grid sidebar trick returning the saved note" loading="lazy">
+      <figcaption>The snippet you saved four days ago and would otherwise re-derive from scratch.</figcaption>
+    </figure>
+
+    <h2>Where the AI comes in</h2>
+
+    <p>shyn speaks <strong>MCP</strong>, the open protocol every serious AI client now supports. Five tools: <code>search_memory</code>, <code>recent_activity</code>, <code>remember</code>, <code>forget</code>, <code>memory_status</code>. Claude Desktop and Claude Code connect in one step; anything else that speaks MCP works too — including fully local models, so your memory never has to touch a paid API at all. Your AI stops being a very smart stranger and starts answering like something that was in the room.</p>
+
+    <h2>What it refuses to do</h2>
+
+    <p>The features that aren't there are the point of the ones that are. shyn has <strong>no telemetry, no analytics endpoint, no crash reporter</strong> — there is no server to send anything to. It never stores what you searched for, only that a search happened. The menu bar popover shows counts, never content. <code>shyn forget</code> is honest deletion, by document, source, or time range. And when something breaks, <code>shyn diagnose</code> prints versions and error lines with zero document content, and <em>you</em> choose where to paste it.</p>
+
+    <p>Pause capture for thirty minutes, two hours, or until tomorrow. Exclude any app forever with one command. It is your register; shyn just keeps it.</p>
+
+    <h2>Who it's for</h2>
+
+    <p>People whose days outrun their working memory. Engineers and founders juggling nine threads, ADHD brains for whom “just write it down” has failed a hundred polite times, anyone who has ever scrolled their own browser history at midnight looking for a thing they <em>know</em> they read. The register fills itself, so remembering stops being a discipline and starts being infrastructure.</p>
+
+    <h2>The fine print, as always</h2>
+
+    <p>Pre-alpha. macOS on Apple Silicon only. Self-signed apps re-signed locally by <code>shyn setup</code> — Apple-notarized one-click installs are on the roadmap. Source-available under the Elastic License 2.0: read it, build it, bring it to work; just don't sell it as a service. Code at <a href="https://github.com/shyn-labs/shyn">github.com/shyn-labs/shyn</a>; how we make screenshots without exposing anyone's memory is <a href="/blog/shyn-caught-us-staging-its-own-demo/">entry no. 001</a>.</p>
+
+    <div class="install"><code><span class="dollar">$</span> brew install --cask shyn-labs/tap/shyn &amp;&amp; shyn setup</code></div>
+
+    <p>Your days already write themselves. shyn just keeps the register.</p>
+  </article>
+
+  <footer>
+    <span>☀️ shyn — a register of your days</span>
+    <span><a href="/blog/">daybook</a> · <a href="/blog/feed.xml">rss</a> · <a href="https://github.com/shyn-labs/shyn">github</a> · <a href="mailto:hello@shyn.day">hello@shyn.day</a></span>
+  </footer>
+</div>
+</body>
+</html>

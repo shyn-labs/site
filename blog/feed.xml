@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+<channel>
+  <title>the shyn daybook</title>
+  <link>https://shyn.day/blog/</link>
+  <description>Entries from the making of shyn — a local-first memory for your Mac.</description>
+  <language>en</language>
+  <atom:link href="https://shyn.day/blog/feed.xml" rel="self" type="application/rss+xml"/>
+  <lastBuildDate>Wed, 22 Jul 2026 12:00:00 +0000</lastBuildDate>
+  <item>
+    <title>why shyn exists</title>
+    <link>https://shyn.day/blog/why-shyn-exists/</link>
+    <guid>https://shyn.day/blog/why-shyn-exists/</guid>
+    <pubDate>Wed, 22 Jul 2026 12:30:00 +0000</pubDate>
+    <description>Your AI is brilliant and amnesiac. Your life happens on your Mac all day and lands nowhere. What shyn captures (screen, meetings, browsing, notes), how it recalls (hybrid search over an encrypted local index), where the AI comes in (MCP, any client, even fully local models), and what it refuses to do (telemetry, content in the UI, anything cloud).</description>
+  </item>
+  <item>
+    <title>shyn caught us staging its own demo</title>
+    <link>https://shyn.day/blog/shyn-caught-us-staging-its-own-demo/</link>
+    <guid>https://shyn.day/blog/shyn-caught-us-staging-its-own-demo/</guid>
+    <pubDate>Wed, 22 Jul 2026 12:00:00 +0000</pubDate>
+    <description>We built a fictional person, Maya Chen, so our screenshots wouldn't expose a real person's memory. Then we asked our AI a question with the real shyn still connected — and it called the demo data fabricated. The most honest QA report we never wrote, and a tour of what shyn actually does.</description>
+  </item>
+</channel>
+</rss>

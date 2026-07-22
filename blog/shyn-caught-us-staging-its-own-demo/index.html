@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>shyn caught us staging its own demo — the shyn daybook</title>
+<meta name="description" content="We built a fictional person so our screenshots wouldn't expose a real one. Then we asked our AI a question with the real shyn still connected, and it told on us.">
+<link rel="canonical" href="https://shyn.day/blog/shyn-caught-us-staging-its-own-demo/">
+<meta property="og:title" content="shyn caught us staging its own demo">
+<meta property="og:description" content="We built a fictional person so our screenshots wouldn't expose a real one. The product noticed.">
+<meta property="og:url" content="https://shyn.day/blog/shyn-caught-us-staging-its-own-demo/">
+<meta property="og:type" content="article">
+<meta property="og:image" content="https://shyn.day/blog/shyn-caught-us-staging-its-own-demo/claude-redwood.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="theme-color" content="#fffdf6" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#10131e" media="(prefers-color-scheme: dark)">
+<link rel="icon" href="/assets/mark.svg" type="image/svg+xml">
+<link rel="alternate" type="application/rss+xml" title="the shyn daybook" href="/blog/feed.xml">
+<style>
+  @font-face { font-family:'Newsreader'; src:url('/fonts/newsreader.woff2') format('woff2');
+    font-weight:200 800; font-style:normal; font-display:swap; }
+  @font-face { font-family:'Newsreader'; src:url('/fonts/newsreader-italic.woff2') format('woff2');
+    font-weight:200 800; font-style:italic; font-display:swap; }
+  * { margin:0; padding:0; box-sizing:border-box; }
+  a { color:inherit; }
+  body {
+    font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif; color:#3a352c;
+    background:linear-gradient(180deg,#fffdf6 0%,#fff3d6 5%,#f7f2e6 12%,#f4efe3 55%,#f0e9d6 78%,#f6e3b8 92%,#f3c87f 100%);
+  }
+  .grain { position:fixed; inset:0; pointer-events:none; opacity:.05; z-index:50;
+    background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='140' height='140'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2'/%3E%3C/filter%3E%3Crect width='140' height='140' filter='url(%23n)' opacity='1'/%3E%3C/svg%3E"); }
+  .act { max-width:720px; margin:0 auto; padding:0 24px; }
+  .masthead { display:flex; justify-content:space-between; align-items:baseline; padding:20px 0 10px; gap:14px;
+    border-bottom:2.5px solid rgba(58,53,44,.75); font-size:11.5px; letter-spacing:.13em; text-transform:uppercase; color:#6d6553; }
+  .masthead a { text-decoration:none; }
+  .masthead .vol { font-family:'Newsreader',Georgia,serif; font-style:italic; text-transform:none; letter-spacing:0; font-size:13px; }
+  .kicker { font-size:11px; letter-spacing:.32em; text-transform:uppercase; font-weight:600; color:#c98a2d; margin-top:64px; }
+  h1 { font-family:'Newsreader',Georgia,serif; font-optical-sizing:auto; letter-spacing:-.02em;
+    font-weight:560; font-size:clamp(38px,6vw,58px); line-height:1.04; color:#2e2a22; margin:14px 0 10px; }
+  h1 em { font-style:italic; font-weight:400; color:#c98a2d; }
+  .dateline { font-size:12.5px; letter-spacing:.13em; text-transform:uppercase; color:#a08e68; margin-bottom:44px; }
+  article { font-size:17px; line-height:1.72; color:#4a453a; }
+  article p { margin:0 0 22px; }
+  article h2 { font-family:'Newsreader',Georgia,serif; font-weight:620; font-size:27px; color:#2e2a22;
+    letter-spacing:-.01em; margin:46px 0 14px; }
+  article strong { color:#2e2a22; }
+  article code { font-family:ui-monospace,'SF Mono',Menlo,Consolas,monospace; font-size:.86em;
+    background:rgba(58,53,44,.07); border-radius:6px; padding:2px 6px; }
+  blockquote { font-family:'Newsreader',Georgia,serif; font-style:italic; font-size:19px; line-height:1.6;
+    color:#6d6553; border-left:3px solid #e2b96e; padding:2px 0 2px 22px; margin:0 0 22px; }
+  figure { margin:34px 0; }
+  figure img { width:100%; height:auto; display:block; border-radius:16px;
+    border:1px solid rgba(58,53,44,.14); box-shadow:0 24px 70px rgba(120,90,20,.14); }
+  figure.narrow { max-width:340px; margin-left:auto; margin-right:auto; }
+  figcaption { font-size:13px; color:#a08e68; margin-top:12px; line-height:1.55; text-align:center; }
+  .install { display:flex; align-items:center; justify-content:center; gap:16px; margin:40px 0;
+    background:rgba(255,255,255,.72); border:1px solid rgba(58,53,44,.13); border-radius:16px; padding:16px 22px;
+    box-shadow:0 12px 40px rgba(120,90,20,.13), inset 0 1px 0 rgba(255,255,255,.9); }
+  .install code { background:none; padding:0; font-size:15px; }
+  .install code .dollar { color:#c98a2d; }
+  .rule { border:0; border-top:1px solid rgba(58,53,44,.24); margin:52px 0; }
+  footer { display:flex; justify-content:space-between; gap:14px; flex-wrap:wrap; padding:26px 0 40px; margin-top:70px;
+    border-top:2.5px solid rgba(58,53,44,.6); font-size:12px; letter-spacing:.1em; text-transform:uppercase; color:#6d6553; }
+  footer a { text-decoration:none; }
+  @media (max-width:560px){ article{font-size:16px} .masthead{font-size:9.5px} }
+</style>
+</head>
+<body>
+<div class="grain"></div>
+<div class="act">
+  <div class="masthead">
+    <span><a href="/">☀️ shyn</a></span>
+    <span class="vol"><a href="/blog/">the daybook</a></span>
+    <span>All entries confidential.</span>
+  </div>
+
+  <p class="kicker">entry no. 001</p>
+  <h1>shyn caught us <em>staging its own demo</em></h1>
+  <p class="dateline">22 July 2026 · the shyn daybook</p>
+
+  <article>
+    <p>Product screenshots are the most staged artifact in software. Ours are staged too. This is the story of how we know our staging was convincing, because the only one who caught it was the product.</p>
+
+    <p>Here is the problem with screenshotting a memory tool: shyn's entire promise is that the register of your days belongs to you. Pointing a camera at a real person's memory to make marketing material would be a strange way to honor that. So we did what film sets do — we built a set. <strong>Maya Chen</strong>, freelance product designer, entirely fictional: a client call about a pricing page, a half-finished note scoping dark mode, a Lisbon trip in October, a CSS trick she keeps forgetting, a grocery list. Ten documents, staged into a scratch copy of shyn with timestamps arranged like a believable week.</p>
+
+    <p>Then, mid-setup, we asked Claude on that same Mac: <em>“What did I promise the Redwood client? check shyn.”</em> — and by mistake, the question went to the <strong>real</strong> shyn instance, the one that had been quietly keeping the register while we worked. Its answer, lightly compressed:</p>
+
+    <blockquote>What I can see are terminal sessions, an MCP wrapper being set up, and a demo daemon serving fabricated data for someone named “Maya” — not a real business record. Rather than stitch something together from development debris, I'll say plainly: I don't have an actual answer to what you promised the Redwood client.</blockquote>
+
+    <p>The product had watched us build its own fake demo, and declined to be fooled by it. We would have been annoyed if we weren't so pleased. It is the most honest QA report we have ever received, and nobody wrote it.</p>
+
+    <h2>What you're actually looking at</h2>
+
+    <p>shyn lives in your Mac's menu bar and keeps the register: pages you read, meetings you sit through, notes you scribble. Everything lands in an encrypted database on your own disk, indexed for search — keyword and semantic, both local. When your AI needs to know something about your life, it asks shyn over MCP and gets an answer grounded in what actually happened. Nothing phones home.</p>
+
+    <p>So when Maya asks about her work:</p>
+
+    <figure>
+      <img src="claude-redwood.png" alt="Claude Desktop answering 'What did I promise the Redwood client?' with a grounded answer citing dark mode scoping notes" loading="lazy">
+      <figcaption>The Sunday-night question. The answer comes from Tuesday's call and a note she barely remembers writing — with the file path, in case she wants the rest.</figcaption>
+    </figure>
+
+    <p>Or about her life:</p>
+
+    <figure>
+      <img src="claude-lisbon.png" alt="Claude Desktop answering 'When am I flying to Lisbon?' with flight number, seat, and booking reference" loading="lazy">
+      <figcaption>Flight, seat, booking reference, return leg. She never told the AI any of this. She just booked a trip once, on her own laptop.</figcaption>
+    </figure>
+
+    <p>The terminal-minded can skip the chat entirely:</p>
+
+    <figure>
+      <img src="lisbon-flight.png" alt="Terminal running shyn search for the Lisbon flight, returning the trip note as the top hit" loading="lazy">
+      <figcaption><code>shyn search</code> — hybrid keyword + semantic ranking over a local socket, answers in milliseconds.</figcaption>
+    </figure>
+
+    <h2>The one screenshot that isn't staged</h2>
+
+    <figure class="narrow">
+      <img src="popover-real.png" alt="The shyn menu bar popover showing all systems green, 22,541 documents indexed, and weekly counts" loading="lazy">
+      <figcaption>The real popover from our own instance, 22,541 documents deep.</figcaption>
+    </figure>
+
+    <p>This one is live, from the instance that ratted us out. We can screenshot it because it was designed to be screenshotted: the popover shows <strong>counts, never content</strong>. Health of the capture agents, size of the index, pages read this week. There is nothing in it to leak. That is not an accident of this screenshot; it is a rule about what the surface of a memory tool should expose.</p>
+
+    <h2>About those screenshots</h2>
+
+    <p>Every conversation screenshot on this page shows Maya's fabricated memory, never a real person's. The staging is one command in our repo — a manifest of her ten documents, ingested with realistic sources and timestamps into a scratch instance with the history readers disabled. We are telling you this because a memory product that quietly used its makers' real memory for marketing would deserve exactly the skepticism it got from its own AI.</p>
+
+    <h2>The fine print, as always</h2>
+
+    <p>shyn is <strong>pre-alpha</strong>, macOS on Apple Silicon only. The apps are self-signed and re-signed locally by <code>shyn setup</code>; Apple-notarized installs are on the roadmap. Source-available under the Elastic License 2.0 — read it, build it, bring it to work; just don't sell it as a service. The code, including everything described here, is at <a href="https://github.com/shyn-labs/shyn">github.com/shyn-labs/shyn</a>.</p>
+
+    <div class="install"><code><span class="dollar">$</span> brew install --cask shyn-labs/tap/shyn &amp;&amp; shyn setup</code></div>
+
+    <p>The register keeps itself. Even, it turns out, when you'd rather it briefly didn't.</p>
+  </article>
+
+  <footer>
+    <span>☀️ shyn — a register of your days</span>
+    <span><a href="/blog/">daybook</a> · <a href="/blog/feed.xml">rss</a> · <a href="https://github.com/shyn-labs/shyn">github</a> · <a href="mailto:hello@shyn.day">hello@shyn.day</a></span>
+  </footer>
+</div>
+</body>
+</html>
