@@ -237,7 +237,7 @@
 
 <!-- ACT I · DAWN -->
 <section class="act">
-  <div class="masthead"><span>Est. 2026 · macOS · Apple Silicon</span><span class="vol">Vol. <span data-version></span> — the current release</span><span>All entries confidential.</span></div>
+  <div class="masthead"><span>Est. 2026 · macOS · Apple Silicon</span><span class="vol"><a href="/blog/">the daybook — notes from the making</a></span><span>All entries confidential.</span></div>
   <div class="hero">
     <div class="hero-left">
       <p class="kicker rv" style="color:#c98a2d">100% local · encrypted · nothing phones home</p>
@@ -252,7 +252,7 @@
     <aside class="popcard rv d2" aria-label="The shyn menu bar popover">
       <div class="hd"><b>shyn</b><span class="pill">ALL SYSTEMS GO</span></div>
       <div class="seclab">Health</div>
-      <div class="row"><span><span class="dot">●</span>Daemon</span><b data-version></b></div>
+      <div class="row"><span><span class="dot">●</span>Daemon</span><b>ok</b></div>
       <div class="row"><span><span class="dot">●</span>Screen capture</span><b>just now</b></div>
       <div class="row"><span><span class="dot">●</span>Meeting agent</span><b>idle</b></div>
       <div class="seclab">This week</div>
@@ -394,8 +394,6 @@
 </section>
 
 <script>
-const VERSION = 'v0.4.0-alpha';
-document.querySelectorAll('[data-version]').forEach(el => el.textContent = VERSION);
 
 const reduced = matchMedia('(prefers-reduced-motion: reduce)').matches;
 

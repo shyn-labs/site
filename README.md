@@ -6,4 +6,4 @@ third-party requests, no analytics. Fonts are self-hosted (Fraunces,
 latin subset). Deployed via GitHub Pages to https://shyn.day.
 
 Edit `index.html`, push to `main`, done. The release version lives in one
-`VERSION` const at the top of the inline script.
+masthead daybook link (version header removed 2026-07-22 — it always drifted stale) at the top of the inline script.
