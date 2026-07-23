@@ -6,7 +6,14 @@
   <description>Entries from the making of shyn — a local-first memory for your Mac.</description>
   <language>en</language>
   <atom:link href="https://shyn.day/blog/feed.xml" rel="self" type="application/rss+xml"/>
-  <lastBuildDate>Wed, 22 Jul 2026 12:00:00 +0000</lastBuildDate>
+  <lastBuildDate>Thu, 23 Jul 2026 09:00:00 +0000</lastBuildDate>
+  <item>
+    <title>counts, never content</title>
+    <link>https://shyn.day/blog/counts-never-content/</link>
+    <guid>https://shyn.day/blog/counts-never-content/</guid>
+    <pubDate>Thu, 23 Jul 2026 09:00:00 +0000</pubDate>
+    <description>A design rule for memory tools: every surface that isn't the search result itself — popover, stats, logs, diagnostics, marketing — shows counts, health, and versions. Never anything you read, said, or wrote. Inconvenient roughly weekly, and worth it.</description>
+  </item>
   <item>
     <title>why shyn exists</title>
     <link>https://shyn.day/blog/why-shyn-exists/</link>

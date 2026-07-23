@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>counts, never content — the shyn daybook</title>
+<meta name="description" content="A design rule for memory tools: every surface that isn't the search result itself shows numbers, health, and versions — and nothing you ever read, said, or wrote.">
+<link rel="canonical" href="https://shyn.day/blog/counts-never-content/">
+<meta property="og:title" content="counts, never content">
+<meta property="og:description" content="A design rule for memory tools: every surface that isn't the search result itself shows numbers, health, and versions — and nothing you ever read, said, or wrote.">
+<meta property="og:url" content="https://shyn.day/blog/counts-never-content/">
+<meta property="og:type" content="article">
+<meta property="og:image" content="https://shyn.day/blog/counts-never-content/popover-real.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="theme-color" content="#fffdf6" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#10131e" media="(prefers-color-scheme: dark)">
+<link rel="icon" href="/assets/mark.svg" type="image/svg+xml">
+<link rel="alternate" type="application/rss+xml" title="the shyn daybook" href="/blog/feed.xml">
+<style>
+  @font-face { font-family:'Newsreader'; src:url('/fonts/newsreader.woff2') format('woff2');
+    font-weight:200 800; font-style:normal; font-display:swap; }
+  @font-face { font-family:'Newsreader'; src:url('/fonts/newsreader-italic.woff2') format('woff2');
+    font-weight:200 800; font-style:italic; font-display:swap; }
+  * { margin:0; padding:0; box-sizing:border-box; }
+  a { color:inherit; }
+  body {
+    font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif; color:#3a352c;
+    background:linear-gradient(180deg,#fffdf6 0%,#fff3d6 5%,#f7f2e6 12%,#f4efe3 55%,#f0e9d6 78%,#f6e3b8 92%,#f3c87f 100%);
+  }
+  .grain { position:fixed; inset:0; pointer-events:none; opacity:.05; z-index:50;
+    background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='140' height='140'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2'/%3E%3C/filter%3E%3Crect width='140' height='140' filter='url(%23n)' opacity='1'/%3E%3C/svg%3E"); }
+  .act { max-width:720px; margin:0 auto; padding:0 24px; }
+  .masthead { display:flex; justify-content:space-between; align-items:baseline; padding:20px 0 10px; gap:14px;
+    border-bottom:2.5px solid rgba(58,53,44,.75); font-size:11.5px; letter-spacing:.13em; text-transform:uppercase; color:#6d6553; }
+  .masthead a { text-decoration:none; }
+  .masthead .vol { font-family:'Newsreader',Georgia,serif; font-style:italic; text-transform:none; letter-spacing:0; font-size:13px; }
+  .kicker { font-size:11px; letter-spacing:.32em; text-transform:uppercase; font-weight:600; color:#c98a2d; margin-top:64px; }
+  h1 { font-family:'Newsreader',Georgia,serif; font-optical-sizing:auto; letter-spacing:-.02em;
+    font-weight:560; font-size:clamp(38px,6vw,58px); line-height:1.04; color:#2e2a22; margin:14px 0 10px; }
+  h1 em { font-style:italic; font-weight:400; color:#c98a2d; }
+  .dateline { font-size:12.5px; letter-spacing:.13em; text-transform:uppercase; color:#a08e68; margin-bottom:44px; }
+  article { font-size:17px; line-height:1.72; color:#4a453a; }
+  article p { margin:0 0 22px; }
+  article h2 { font-family:'Newsreader',Georgia,serif; font-weight:620; font-size:27px; color:#2e2a22;
+    letter-spacing:-.01em; margin:46px 0 14px; }
+  article strong { color:#2e2a22; }
+  article ul { margin:0 0 22px 22px; }
+  article li { margin-bottom:10px; }
+  article code { font-family:ui-monospace,'SF Mono',Menlo,Consolas,monospace; font-size:.86em;
+    background:rgba(58,53,44,.07); border-radius:6px; padding:2px 6px; }
+  pre { background:#1c2030; color:#e8e3d5; border-radius:14px; padding:18px 22px; overflow-x:auto;
+    font-size:13.5px; line-height:1.6; margin:0 0 22px; }
+  pre code { background:none; padding:0; font-size:inherit; color:inherit; }
+  blockquote { font-family:'Newsreader',Georgia,serif; font-style:italic; font-size:19px; line-height:1.6;
+    color:#6d6553; border-left:3px solid #e2b96e; padding:2px 0 2px 22px; margin:0 0 22px; }
+  figure { margin:34px 0; }
+  figure img { width:100%; height:auto; display:block; border-radius:16px;
+    border:1px solid rgba(58,53,44,.14); box-shadow:0 24px 70px rgba(120,90,20,.14); }
+  figure.narrow { max-width:340px; margin-left:auto; margin-right:auto; }
+  figcaption { font-size:13px; color:#a08e68; margin-top:12px; line-height:1.55; text-align:center; }
+  footer { display:flex; justify-content:space-between; gap:14px; flex-wrap:wrap; padding:26px 0 40px; margin-top:70px;
+    border-top:2.5px solid rgba(58,53,44,.6); font-size:12px; letter-spacing:.1em; text-transform:uppercase; color:#6d6553; }
+  footer a { text-decoration:none; }
+  @media (max-width:560px){ article{font-size:16px} .masthead{font-size:9.5px} }
+</style>
+</head>
+<body>
+<div class="grain"></div>
+<div class="act">
+  <div class="masthead">
+    <span><a href="/">&#9728;&#65039; shyn</a></span>
+    <span class="vol"><a href="/blog/">the daybook</a></span>
+    <span>All entries confidential.</span>
+  </div>
+
+  <p class="kicker">entry no. 003</p>
+  <h1>counts, <em>never content</em></h1>
+  <p class="dateline">23 July 2026 · the shyn daybook</p>
+
+  <article>
+    <p>There is exactly one screenshot of shyn we can take without staging anything, and it comes from the most sensitive machine we have — the one that remembers everything its owner does.</p>
+
+    <figure class="narrow">
+      <img src="popover-real.png" alt="The shyn menu bar popover: all health rows green, index and weekly counts, no content" loading="lazy">
+      <figcaption>A real popover from a real instance. Publishable as-is.</figcaption>
+    </figure>
+
+    <p>That is not luck. It is a rule that shapes more of shyn's design than any other: <strong>every surface except the answer itself shows counts, never content.</strong> The only place your memory comes out is a search result, delivered over a local socket to an AI you pointed at it. Everything else — everything a passerby, a screenshot, a bug report, or a log file might see — is numbers.</p>
+
+    <h2>Where the rule bites</h2>
+
+    <ul>
+      <li><strong>The popover.</strong> Health of the agents, size of the index, pages read this week. A stranger glancing at your screen learns you read 1,534 pages. Not one of them.</li>
+      <li><strong>Usage stats.</strong> shyn counts that a search happened. It never stores what you searched for. Your questions to your own memory are not themselves memorized.</li>
+      <li><strong>Logs.</strong> The daemon does not log document content — not at debug level, not at error level, not when it crashes. A stack trace that quoted the page you were reading would be a leak wearing an engineering costume.</li>
+      <li><strong>Diagnostics.</strong> When something breaks, <code>shyn diagnose</code> prints versions, service states, and error lines — zero content — and <em>you</em> paste it wherever you choose. Support should never require confession.</li>
+      <li><strong>The marketing.</strong> The conversation screenshots on this site show a fictional person's memory, built for the camera. That story is <a href="/blog/shyn-caught-us-staging-its-own-demo/">entry no. 001</a>.</li>
+    </ul>
+
+    <h2>The cost, honestly</h2>
+
+    <p>This rule is inconvenient roughly weekly. Debugging a ranking problem without being able to log what was ranked is slower. Reproducing a capture bug without capturing the capture is annoying. Every time, the shortcut is one log line away, and every time the answer has to be no — because a memory tool that leaks a little, structurally, will eventually leak a lot, socially. The register is yours. Even we only ever get to count it.</p>
+  </article>
+
+  <footer>
+    <span>&#9728;&#65039; shyn — a register of your days</span>
+    <span><a href="/blog/">daybook</a> · <a href="/blog/feed.xml">rss</a> · <a href="https://github.com/shyn-labs/shyn">github</a> · <a href="mailto:hello@shyn.day">hello@shyn.day</a></span>
+  </footer>
+</div>
+</body>
+</html>
