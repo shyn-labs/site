@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>a model that never leaves the room — the shyn daybook</title>
+<meta name="description" content="shyn's capture is local and its index is local. Close the loop with a local model over MCP and your memory works with the wifi off. What a 14B model gets right — and where it needs directions.">
+<link rel="canonical" href="https://shyn.day/blog/a-model-that-never-leaves-the-room/">
+<meta property="og:title" content="a model that never leaves the room">
+<meta property="og:description" content="shyn's capture is local and its index is local. Close the loop with a local model over MCP and your memory works with the wifi off. What a 14B model gets right — and where it needs directions.">
+<meta property="og:url" content="https://shyn.day/blog/a-model-that-never-leaves-the-room/">
+<meta property="og:type" content="article">
+
+<meta name="twitter:card" content="summary">
+<meta name="theme-color" content="#fffdf6" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#10131e" media="(prefers-color-scheme: dark)">
+<link rel="icon" href="/assets/mark.svg" type="image/svg+xml">
+<link rel="alternate" type="application/rss+xml" title="the shyn daybook" href="/blog/feed.xml">
+<style>
+  @font-face { font-family:'Newsreader'; src:url('/fonts/newsreader.woff2') format('woff2');
+    font-weight:200 800; font-style:normal; font-display:swap; }
+  @font-face { font-family:'Newsreader'; src:url('/fonts/newsreader-italic.woff2') format('woff2');
+    font-weight:200 800; font-style:italic; font-display:swap; }
+  * { margin:0; padding:0; box-sizing:border-box; }
+  a { color:inherit; }
+  body {
+    font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif; color:#3a352c;
+    background:linear-gradient(180deg,#fffdf6 0%,#fff3d6 5%,#f7f2e6 12%,#f4efe3 55%,#f0e9d6 78%,#f6e3b8 92%,#f3c87f 100%);
+  }
+  .grain { position:fixed; inset:0; pointer-events:none; opacity:.05; z-index:50;
+    background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='140' height='140'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2'/%3E%3C/filter%3E%3Crect width='140' height='140' filter='url(%23n)' opacity='1'/%3E%3C/svg%3E"); }
+  .act { max-width:720px; margin:0 auto; padding:0 24px; }
+  .masthead { display:flex; justify-content:space-between; align-items:baseline; padding:20px 0 10px; gap:14px;
+    border-bottom:2.5px solid rgba(58,53,44,.75); font-size:11.5px; letter-spacing:.13em; text-transform:uppercase; color:#6d6553; }
+  .masthead a { text-decoration:none; }
+  .masthead .vol { font-family:'Newsreader',Georgia,serif; font-style:italic; text-transform:none; letter-spacing:0; font-size:13px; }
+  .kicker { font-size:11px; letter-spacing:.32em; text-transform:uppercase; font-weight:600; color:#c98a2d; margin-top:64px; }
+  h1 { font-family:'Newsreader',Georgia,serif; font-optical-sizing:auto; letter-spacing:-.02em;
+    font-weight:560; font-size:clamp(38px,6vw,58px); line-height:1.04; color:#2e2a22; margin:14px 0 10px; }
+  h1 em { font-style:italic; font-weight:400; color:#c98a2d; }
+  .dateline { font-size:12.5px; letter-spacing:.13em; text-transform:uppercase; color:#a08e68; margin-bottom:44px; }
+  article { font-size:17px; line-height:1.72; color:#4a453a; }
+  article p { margin:0 0 22px; }
+  article h2 { font-family:'Newsreader',Georgia,serif; font-weight:620; font-size:27px; color:#2e2a22;
+    letter-spacing:-.01em; margin:46px 0 14px; }
+  article strong { color:#2e2a22; }
+  article ul { margin:0 0 22px 22px; }
+  article li { margin-bottom:10px; }
+  article code { font-family:ui-monospace,'SF Mono',Menlo,Consolas,monospace; font-size:.86em;
+    background:rgba(58,53,44,.07); border-radius:6px; padding:2px 6px; }
+  pre { background:#1c2030; color:#e8e3d5; border-radius:14px; padding:18px 22px; overflow-x:auto;
+    font-size:13.5px; line-height:1.6; margin:0 0 22px; }
+  pre code { background:none; padding:0; font-size:inherit; color:inherit; }
+  blockquote { font-family:'Newsreader',Georgia,serif; font-style:italic; font-size:19px; line-height:1.6;
+    color:#6d6553; border-left:3px solid #e2b96e; padding:2px 0 2px 22px; margin:0 0 22px; }
+  figure { margin:34px 0; }
+  figure img { width:100%; height:auto; display:block; border-radius:16px;
+    border:1px solid rgba(58,53,44,.14); box-shadow:0 24px 70px rgba(120,90,20,.14); }
+  figure.narrow { max-width:340px; margin-left:auto; margin-right:auto; }
+  figcaption { font-size:13px; color:#a08e68; margin-top:12px; line-height:1.55; text-align:center; }
+  footer { display:flex; justify-content:space-between; gap:14px; flex-wrap:wrap; padding:26px 0 40px; margin-top:70px;
+    border-top:2.5px solid rgba(58,53,44,.6); font-size:12px; letter-spacing:.1em; text-transform:uppercase; color:#6d6553; }
+  footer a { text-decoration:none; }
+  @media (max-width:560px){ article{font-size:16px} .masthead{font-size:9.5px} }
+</style>
+</head>
+<body>
+<div class="grain"></div>
+<div class="act">
+  <div class="masthead">
+    <span><a href="/">&#9728;&#65039; shyn</a></span>
+    <span class="vol"><a href="/blog/">the daybook</a></span>
+    <span>All entries confidential.</span>
+  </div>
+
+  <p class="kicker">entry no. 005</p>
+  <h1>a model that <em>never leaves the room</em></h1>
+  <p class="dateline">24 July 2026 · the shyn daybook</p>
+
+  <article>
+    <p>shyn captures on your Mac and indexes on your Mac. But most people then hand the last step — the asking — to a frontier model in someone's datacenter. That is a fine trade: only the few snippets relevant to your question ever leave, for a model worth consulting. It is also, strictly, optional. shyn speaks MCP, and MCP does not care where the model lives.</p>
+
+    <p>So we closed the loop: Qwen3 14B running on Apple Silicon via MLX, Open WebUI in front of it, and <a href="https://github.com/open-webui/mcpo">mcpo</a> bridging shyn's MCP socket into something Open WebUI can call:</p>
+
+    <pre><code>uvx mcpo --port 8600 -- "$HOME/Library/Application Support/shyn/bin/shyn-mcp"
+# then add http://localhost:8600 as a tool server in Open WebUI</code></pre>
+
+    <p>Ask it what you promised a client, and the answer comes from your own meetings, ranked by your own index, spoken by a model whose weights are on your own disk. The wifi can be off. Nothing about the question, the memory, or the answer touches a network.</p>
+
+    <h2>What we found, honestly</h2>
+
+    <ul>
+      <li><strong>Retrieval quality is identical everywhere.</strong> The ranking — keyword plus semantic, fused — runs inside shyn's daemon, not the model. A 14B model and a frontier model receive exactly the same memories. What varies is the driver, not the archive.</li>
+      <li><strong>Small models are fine clerks and poor librarians.</strong> Say “search my memory for the redwood promise” and a 14B model executes beautifully. Ask a vague question and hope it decides to search on its own — that judgment is where the frontier models earn their fees.</li>
+      <li><strong>Thinking modes need reining in.</strong> Qwen3 will happily spend its whole token budget deliberating about your question instead of answering it. <code>/no_think</code> is your friend.</li>
+      <li><strong>Name the tool.</strong> AI clients increasingly ship their own memory features. An unqualified “check my memory” can be intercepted by the client's built-in notebook; “check shyn” goes where you meant.</li>
+      <li><strong>Size for your RAM with tool use in mind.</strong> A model whose weights nearly fill your unified memory will run fine in chat and die the moment tool schemas and context arrive. On a 24GB machine, the 14B was the honest choice over the 30B — a smaller model that works beats a bigger one that crashes.</li>
+    </ul>
+
+    <h2>Why this matters more than a benchmark</h2>
+
+    <p>Local-first capture with cloud-only recall is half a promise. Some questions you would only ask something that provably cannot repeat them — and some people's threat models rule out the datacenter entirely. The point is not that a 14B model matches a frontier one. It is that the choice is yours, per question, forever: the register stays put, and you decide who gets to read from it.</p>
+  </article>
+
+  <footer>
+    <span>&#9728;&#65039; shyn — a register of your days</span>
+    <span><a href="/blog/">daybook</a> · <a href="/blog/feed.xml">rss</a> · <a href="https://github.com/shyn-labs/shyn">github</a> · <a href="mailto:hello@shyn.day">hello@shyn.day</a></span>
+  </footer>
+</div>
+</body>
+</html>

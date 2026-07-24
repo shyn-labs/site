@@ -8,6 +8,13 @@
   <atom:link href="https://shyn.day/blog/feed.xml" rel="self" type="application/rss+xml"/>
   <lastBuildDate>Fri, 24 Jul 2026 09:00:00 +0000</lastBuildDate>
   <item>
+    <title>a model that never leaves the room</title>
+    <link>https://shyn.day/blog/a-model-that-never-leaves-the-room/</link>
+    <guid>https://shyn.day/blog/a-model-that-never-leaves-the-room/</guid>
+    <pubDate>Fri, 24 Jul 2026 09:00:00 +0000</pubDate>
+    <description>shyn's capture is local and its index is local. Close the loop with a local model over MCP — Qwen3 on MLX, Open WebUI, mcpo — and your memory works with the wifi off. Honest findings: retrieval is identical everywhere; small models are fine clerks and poor librarians; /no_think; name the tool; size for tool use.</description>
+  </item>
+  <item>
     <title>the audio is purged the moment the words land</title>
     <link>https://shyn.day/blog/audio-purged-when-words-land/</link>
     <guid>https://shyn.day/blog/audio-purged-when-words-land/</guid>
