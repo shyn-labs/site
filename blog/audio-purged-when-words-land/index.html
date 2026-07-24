@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>the audio is purged the moment the words land — the shyn daybook</title>
+<meta name="description" content="How shyn remembers meetings: detected on-device, recorded locally, transcribed by Whisper on your Mac, speaker-labeled into the register — and the audio deleted the instant the transcript exists.">
+<link rel="canonical" href="https://shyn.day/blog/audio-purged-when-words-land/">
+<meta property="og:title" content="the audio is purged the moment the words land">
+<meta property="og:description" content="How shyn remembers meetings: detected on-device, recorded locally, transcribed by Whisper on your Mac, speaker-labeled into the register — and the audio deleted the instant the transcript exists.">
+<meta property="og:url" content="https://shyn.day/blog/audio-purged-when-words-land/">
+<meta property="og:type" content="article">
+
+<meta name="twitter:card" content="summary">
+<meta name="theme-color" content="#fffdf6" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#10131e" media="(prefers-color-scheme: dark)">
+<link rel="icon" href="/assets/mark.svg" type="image/svg+xml">
+<link rel="alternate" type="application/rss+xml" title="the shyn daybook" href="/blog/feed.xml">
+<style>
+  @font-face { font-family:'Newsreader'; src:url('/fonts/newsreader.woff2') format('woff2');
+    font-weight:200 800; font-style:normal; font-display:swap; }
+  @font-face { font-family:'Newsreader'; src:url('/fonts/newsreader-italic.woff2') format('woff2');
+    font-weight:200 800; font-style:italic; font-display:swap; }
+  * { margin:0; padding:0; box-sizing:border-box; }
+  a { color:inherit; }
+  body {
+    font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif; color:#3a352c;
+    background:linear-gradient(180deg,#fffdf6 0%,#fff3d6 5%,#f7f2e6 12%,#f4efe3 55%,#f0e9d6 78%,#f6e3b8 92%,#f3c87f 100%);
+  }
+  .grain { position:fixed; inset:0; pointer-events:none; opacity:.05; z-index:50;
+    background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='140' height='140'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2'/%3E%3C/filter%3E%3Crect width='140' height='140' filter='url(%23n)' opacity='1'/%3E%3C/svg%3E"); }
+  .act { max-width:720px; margin:0 auto; padding:0 24px; }
+  .masthead { display:flex; justify-content:space-between; align-items:baseline; padding:20px 0 10px; gap:14px;
+    border-bottom:2.5px solid rgba(58,53,44,.75); font-size:11.5px; letter-spacing:.13em; text-transform:uppercase; color:#6d6553; }
+  .masthead a { text-decoration:none; }
+  .masthead .vol { font-family:'Newsreader',Georgia,serif; font-style:italic; text-transform:none; letter-spacing:0; font-size:13px; }
+  .kicker { font-size:11px; letter-spacing:.32em; text-transform:uppercase; font-weight:600; color:#c98a2d; margin-top:64px; }
+  h1 { font-family:'Newsreader',Georgia,serif; font-optical-sizing:auto; letter-spacing:-.02em;
+    font-weight:560; font-size:clamp(38px,6vw,58px); line-height:1.04; color:#2e2a22; margin:14px 0 10px; }
+  h1 em { font-style:italic; font-weight:400; color:#c98a2d; }
+  .dateline { font-size:12.5px; letter-spacing:.13em; text-transform:uppercase; color:#a08e68; margin-bottom:44px; }
+  article { font-size:17px; line-height:1.72; color:#4a453a; }
+  article p { margin:0 0 22px; }
+  article h2 { font-family:'Newsreader',Georgia,serif; font-weight:620; font-size:27px; color:#2e2a22;
+    letter-spacing:-.01em; margin:46px 0 14px; }
+  article strong { color:#2e2a22; }
+  article ul { margin:0 0 22px 22px; }
+  article li { margin-bottom:10px; }
+  article code { font-family:ui-monospace,'SF Mono',Menlo,Consolas,monospace; font-size:.86em;
+    background:rgba(58,53,44,.07); border-radius:6px; padding:2px 6px; }
+  pre { background:#1c2030; color:#e8e3d5; border-radius:14px; padding:18px 22px; overflow-x:auto;
+    font-size:13.5px; line-height:1.6; margin:0 0 22px; }
+  pre code { background:none; padding:0; font-size:inherit; color:inherit; }
+  blockquote { font-family:'Newsreader',Georgia,serif; font-style:italic; font-size:19px; line-height:1.6;
+    color:#6d6553; border-left:3px solid #e2b96e; padding:2px 0 2px 22px; margin:0 0 22px; }
+  figure { margin:34px 0; }
+  figure img { width:100%; height:auto; display:block; border-radius:16px;
+    border:1px solid rgba(58,53,44,.14); box-shadow:0 24px 70px rgba(120,90,20,.14); }
+  figure.narrow { max-width:340px; margin-left:auto; margin-right:auto; }
+  figcaption { font-size:13px; color:#a08e68; margin-top:12px; line-height:1.55; text-align:center; }
+  footer { display:flex; justify-content:space-between; gap:14px; flex-wrap:wrap; padding:26px 0 40px; margin-top:70px;
+    border-top:2.5px solid rgba(58,53,44,.6); font-size:12px; letter-spacing:.1em; text-transform:uppercase; color:#6d6553; }
+  footer a { text-decoration:none; }
+  @media (max-width:560px){ article{font-size:16px} .masthead{font-size:9.5px} }
+</style>
+</head>
+<body>
+<div class="grain"></div>
+<div class="act">
+  <div class="masthead">
+    <span><a href="/">&#9728;&#65039; shyn</a></span>
+    <span class="vol"><a href="/blog/">the daybook</a></span>
+    <span>All entries confidential.</span>
+  </div>
+
+  <p class="kicker">entry no. 004</p>
+  <h1>the audio is purged <em>the moment the words land</em></h1>
+  <p class="dateline">24 July 2026 · the shyn daybook</p>
+
+  <article>
+    <p>The going approach to meeting memory is a bot. It joins your call wearing a name like “Notetaker,” records everyone, ships the audio to a cloud, and mails back a summary written by someone else's computer. It works. It also means the most candid hour of your day now exists as a file you don't control, on infrastructure you've never seen, under a retention policy you clicked past.</p>
+
+    <p>shyn's version stays in the room. When a meeting starts, shyn notices — call detection runs on-device, and it verifies actual voice before committing to a recording, so a YouTube video doesn't become a “meeting.” It records both sides locally, with a pulsing red dot in your menu bar the whole time. Never silent, never sneaky: the people who built this dislike being recorded without knowing too.</p>
+
+    <p>When the call ends, Whisper — running on your Mac's own silicon, no API in sight — turns the audio into a speaker-labeled transcript, and the transcript is filed into the encrypted register like any other memory. Then the part we consider the actual feature: <strong>the audio is deleted, immediately.</strong> Not retained for quality purposes. Not kept until a sweep gets around to it. Words in, bytes gone.</p>
+
+    <h2>Why destroy the recording?</h2>
+
+    <p>Because the recording and the memory are different things. What you want on Thursday is “what did we decide about the pricing page” — that lives in text, searchable in milliseconds alongside everything else you've read and written. What the audio holds is everything else: tone, tempers, the sound of a colleague's kitchen. Keeping it is all liability and no recall. A transcript can answer a question; a recording can only be replayed against someone.</p>
+
+    <p>The asymmetry runs through shyn's retention design. Screen captures age out on a rolling window — ambient context loses value fast. Meeting transcripts are kept indefinitely by default — decisions are the highest-value memories you have. And <code>shyn forget</code> overrides everything: by document, by source, by time range, honestly deleted.</p>
+
+    <h2>The fine print, as always</h2>
+
+    <p>Meetings need the Microphone and System Audio permissions, which macOS will ask you for in its own words. Detection is tuned for calls, and it is pre-alpha software: edge cases exist, and sustained non-speech audio can still occasionally look meeting-like. When in doubt, the red dot tells the truth — and <code>shyn meeting stop</code> and <code>cancel</code> are one command away.</p>
+  </article>
+
+  <footer>
+    <span>&#9728;&#65039; shyn — a register of your days</span>
+    <span><a href="/blog/">daybook</a> · <a href="/blog/feed.xml">rss</a> · <a href="https://github.com/shyn-labs/shyn">github</a> · <a href="mailto:hello@shyn.day">hello@shyn.day</a></span>
+  </footer>
+</div>
+</body>
+</html>

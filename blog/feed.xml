@@ -6,7 +6,14 @@
   <description>Entries from the making of shyn — a local-first memory for your Mac.</description>
   <language>en</language>
   <atom:link href="https://shyn.day/blog/feed.xml" rel="self" type="application/rss+xml"/>
-  <lastBuildDate>Thu, 23 Jul 2026 09:00:00 +0000</lastBuildDate>
+  <lastBuildDate>Fri, 24 Jul 2026 09:00:00 +0000</lastBuildDate>
+  <item>
+    <title>the audio is purged the moment the words land</title>
+    <link>https://shyn.day/blog/audio-purged-when-words-land/</link>
+    <guid>https://shyn.day/blog/audio-purged-when-words-land/</guid>
+    <pubDate>Fri, 24 Jul 2026 09:00:00 +0000</pubDate>
+    <description>How shyn remembers meetings without a bot in the room: on-device call detection with voice verification, local recording behind a pulsing red dot, Whisper transcription on your own silicon — and the audio deleted the moment the speaker-labeled transcript lands. Words in, bytes gone.</description>
+  </item>
   <item>
     <title>counts, never content</title>
     <link>https://shyn.day/blog/counts-never-content/</link>
