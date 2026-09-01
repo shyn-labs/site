@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>shyn — a register of your days</title>
-<meta name="description" content="A local-first memory for your Mac: pages, meetings, and notes — encrypted on-device, recalled by your AI over MCP. Nothing phones home.">
+<meta name="description" content="A local-first memory for your Mac: pages, meetings, and notes — encrypted on-device, recalled by your AI over MCP. Your memory never leaves your machine.">
 <link rel="canonical" href="https://shyn.day/">
 <meta property="og:title" content="shyn — a register of your days">
 <meta property="og:description" content="Everything you read, say, and write — encrypted on your Mac, recalled by your AI. Nobody else, ever.">
@@ -222,7 +222,7 @@
   "@context": "https://schema.org",
   "@type": "SoftwareApplication",
   "name": "shyn",
-  "description": "A local-first memory for your Mac: pages, meetings, and notes — encrypted on-device, recalled by your AI over MCP. Nothing phones home.",
+  "description": "A local-first memory for your Mac: pages, meetings, and notes — encrypted on-device, recalled by your AI over MCP. Your memory never leaves your machine.",
   "applicationCategory": "ProductivityApplication",
   "operatingSystem": "macOS 14+ (Apple Silicon)",
   "url": "https://shyn.day/",
@@ -240,7 +240,7 @@
   <div class="masthead"><span>Est. 2026 · macOS · Apple Silicon</span><span class="vol"><a href="/blog/">the daybook — notes from the making</a></span><span>All entries confidential.</span></div>
   <div class="hero">
     <div class="hero-left">
-      <p class="kicker rv" style="color:#c98a2d">100% local · encrypted · nothing phones home</p>
+      <p class="kicker rv" style="color:#c98a2d">local-first · encrypted · your memory never leaves</p>
       <h1 class="rv d1" style="margin-top:24px">Your days,<br><em>remembered.</em></h1>
       <p class="sub rv d2">Every page you read, every meeting you sit through, every note you scribble — encrypted on your Mac, recalled by your AI. Nobody else, ever.</p>
       <div class="install rv d3">
@@ -358,11 +358,18 @@
     <div class="stars" aria-hidden="true"></div>
     <p class="kicker rv" style="color:#98a3c4">night · the vault</p>
     <h2 class="rv d1" style="margin-top:16px">What shyn never does.</h2>
-    <p class="lead rv d2">Not a policy page — an architecture. There is no server to call. Grep the code.</p>
+    <p class="lead rv d2">Not a policy page — an architecture. What it captures has nowhere to go. Grep the code.</p>
     <div class="vows">
-      <div class="vow rv d1"><div class="no">never</div><h3>Phones home</h3><p>No telemetry, no analytics, no crash reporter. There is nowhere for your data to go.</p></div>
+      <div class="vow rv d1"><div class="no">never</div><h3>Ships your memory</h3><p>Screen text, transcripts, notes and searches stay on your Mac under every setting. There is nowhere for them to go.</p></div>
       <div class="vow rv d2"><div class="no">never</div><h3>Stores your searches</h3><p>Stats are counts in your local database. The number of searches — never the words.</p></div>
       <div class="vow rv d3"><div class="no">never</div><h3>Ships your content</h3><p>When something breaks, <code class="mono" style="font-size:12px">shyn diagnose</code> prints a content-free block. You choose where it goes.</p></div>
+    </div>
+
+    <div class="obj rv">
+      <h3>One thing that does leave, during beta</h3>
+      <p>shyn runs across different macOS versions, hardware, and permission states. Those combinations produce bugs we cannot reproduce or test for, and most people who hit one never write in. They just quit the app.</p>
+      <p>So during beta shyn reports which features get used, what crashes, its version, and timing numbers, under a random ID that is not you. It never includes anything shyn captured: no screen text, no transcripts, no searches, no file paths. The event list is a fixed set of names you can read in <code class="mono" style="font-size:12px">packages/daemon/src/analytics.ts</code>; that list is the whole surface.</p>
+      <p><b>You choose on first run</b>, before a single event is queued, and one click in Settings changes it any time. Turn it off and shyn is exactly what the vows above promise.</p>
     </div>
 
     <div class="obj rv">
