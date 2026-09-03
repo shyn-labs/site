@@ -6,7 +6,14 @@
   <description>Entries from the making of shyn — a local-first memory for your Mac.</description>
   <language>en</language>
   <atom:link href="https://shyn.day/blog/feed.xml" rel="self" type="application/rss+xml"/>
-  <lastBuildDate>Fri, 24 Jul 2026 09:00:00 +0000</lastBuildDate>
+  <lastBuildDate>Thu, 03 Sep 2026 09:00:00 +0000</lastBuildDate>
+  <item>
+    <title>forgetting is a feature</title>
+    <link>https://shyn.day/blog/forgetting-is-a-feature/</link>
+    <guid>https://shyn.day/blog/forgetting-is-a-feature/</guid>
+    <pubDate>Thu, 03 Sep 2026 09:00:00 +0000</pubDate>
+    <description>Every memory product pitches total recall; the property that makes an archive of your days tolerable is that you can make it stop. shyn forgets three ways — scheduled (screen captures age out, meetings persist), deliberate (the forget tool hard-deletes by document, source, or time range), and constitutional (meeting audio destroyed on transcription). No trash cans, no soft deletes: a delete that costs nothing deletes nothing.</description>
+  </item>
   <item>
     <title>a model that never leaves the room</title>
     <link>https://shyn.day/blog/a-model-that-never-leaves-the-room/</link>

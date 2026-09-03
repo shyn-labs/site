@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>forgetting is a feature — the shyn daybook</title>
+<meta name="description" content="A memory product's real test is deletion. How shyn forgets: rolling windows for ambient capture, a forget tool that hard-deletes, and why a delete that costs nothing deletes nothing.">
+<link rel="canonical" href="https://shyn.day/blog/forgetting-is-a-feature/">
+<meta property="og:title" content="forgetting is a feature">
+<meta property="og:description" content="A memory product's real test is deletion. How shyn forgets: rolling windows for ambient capture, a forget tool that hard-deletes, and why a delete that costs nothing deletes nothing.">
+<meta property="og:url" content="https://shyn.day/blog/forgetting-is-a-feature/">
+<meta property="og:type" content="article">
+
+<meta name="twitter:card" content="summary">
+<meta name="theme-color" content="#fffdf6" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#10131e" media="(prefers-color-scheme: dark)">
+<link rel="icon" href="/assets/mark.svg" type="image/svg+xml">
+<link rel="alternate" type="application/rss+xml" title="the shyn daybook" href="/blog/feed.xml">
+<style>
+  @font-face { font-family:'Newsreader'; src:url('/fonts/newsreader.woff2') format('woff2');
+    font-weight:200 800; font-style:normal; font-display:swap; }
+  @font-face { font-family:'Newsreader'; src:url('/fonts/newsreader-italic.woff2') format('woff2');
+    font-weight:200 800; font-style:italic; font-display:swap; }
+  * { margin:0; padding:0; box-sizing:border-box; }
+  a { color:inherit; }
+  body {
+    font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif; color:#3a352c;
+    background:linear-gradient(180deg,#fffdf6 0%,#fff3d6 5%,#f7f2e6 12%,#f4efe3 55%,#f0e9d6 78%,#f6e3b8 92%,#f3c87f 100%);
+  }
+  .grain { position:fixed; inset:0; pointer-events:none; opacity:.05; z-index:50;
+    background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='140' height='140'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2'/%3E%3C/filter%3E%3Crect width='140' height='140' filter='url(%23n)' opacity='1'/%3E%3C/svg%3E"); }
+  .act { max-width:720px; margin:0 auto; padding:0 24px; }
+  .masthead { display:flex; justify-content:space-between; align-items:baseline; padding:20px 0 10px; gap:14px;
+    border-bottom:2.5px solid rgba(58,53,44,.75); font-size:11.5px; letter-spacing:.13em; text-transform:uppercase; color:#6d6553; }
+  .masthead a { text-decoration:none; }
+  .masthead .vol { font-family:'Newsreader',Georgia,serif; font-style:italic; text-transform:none; letter-spacing:0; font-size:13px; }
+  .kicker { font-size:11px; letter-spacing:.32em; text-transform:uppercase; font-weight:600; color:#c98a2d; margin-top:64px; }
+  h1 { font-family:'Newsreader',Georgia,serif; font-optical-sizing:auto; letter-spacing:-.02em;
+    font-weight:560; font-size:clamp(38px,6vw,58px); line-height:1.04; color:#2e2a22; margin:14px 0 10px; }
+  h1 em { font-style:italic; font-weight:400; color:#c98a2d; }
+  .dateline { font-size:12.5px; letter-spacing:.13em; text-transform:uppercase; color:#a08e68; margin-bottom:44px; }
+  article { font-size:17px; line-height:1.72; color:#4a453a; }
+  article p { margin:0 0 22px; }
+  article h2 { font-family:'Newsreader',Georgia,serif; font-weight:620; font-size:27px; color:#2e2a22;
+    letter-spacing:-.01em; margin:46px 0 14px; }
+  article strong { color:#2e2a22; }
+  article ul { margin:0 0 22px 22px; }
+  article li { margin-bottom:10px; }
+  article code { font-family:ui-monospace,'SF Mono',Menlo,Consolas,monospace; font-size:.86em;
+    background:rgba(58,53,44,.07); border-radius:6px; padding:2px 6px; }
+  pre { background:#1c2030; color:#e8e3d5; border-radius:14px; padding:18px 22px; overflow-x:auto;
+    font-size:13.5px; line-height:1.6; margin:0 0 22px; }
+  pre code { background:none; padding:0; font-size:inherit; color:inherit; }
+  blockquote { font-family:'Newsreader',Georgia,serif; font-style:italic; font-size:19px; line-height:1.6;
+    color:#6d6553; border-left:3px solid #e2b96e; padding:2px 0 2px 22px; margin:0 0 22px; }
+  figure { margin:34px 0; }
+  figure img { width:100%; height:auto; display:block; border-radius:16px;
+    border:1px solid rgba(58,53,44,.14); box-shadow:0 24px 70px rgba(120,90,20,.14); }
+  figure.narrow { max-width:340px; margin-left:auto; margin-right:auto; }
+  figcaption { font-size:13px; color:#a08e68; margin-top:12px; line-height:1.55; text-align:center; }
+  footer { display:flex; justify-content:space-between; gap:14px; flex-wrap:wrap; padding:26px 0 40px; margin-top:70px;
+    border-top:2.5px solid rgba(58,53,44,.6); font-size:12px; letter-spacing:.1em; text-transform:uppercase; color:#6d6553; }
+  footer a { text-decoration:none; }
+  @media (max-width:560px){ article{font-size:16px} .masthead{font-size:9.5px} }
+</style>
+</head>
+<body>
+<div class="grain"></div>
+<div class="act">
+  <div class="masthead">
+    <span><a href="/">&#9728;&#65039; shyn</a></span>
+    <span class="vol"><a href="/blog/">the daybook</a></span>
+    <span>All entries confidential.</span>
+  </div>
+
+  <p class="kicker">entry no. 006</p>
+  <h1>forgetting is <em>a feature</em></h1>
+  <p class="dateline">24 July 2026 · the shyn daybook</p>
+
+  <article>
+    <p>Every memory product pitches total recall. Nobody pitches the other half: a register that can only grow is not a memory, it is a file someone keeps on you. You happen to be the someone, which helps, but the property that makes an archive of your days tolerable is not that it remembers everything. It is that you can make it stop.</p>
+
+    <p>So shyn forgets three ways, and each one was designed, not conceded.</p>
+
+    <h2>Scheduled forgetting</h2>
+
+    <p>Screen captures age out on a rolling window — thirty days by default, yours to change. Ambient context loses value fast: the half-written email shyn glimpsed in April will not answer any question you ask in July, and keeping it forever is all liability and no recall. Meetings run on the opposite default. Decisions age well, so transcripts are kept until you say otherwise. The asymmetry is the design: context expires, commitments persist.</p>
+
+    <h2>Deliberate forgetting</h2>
+
+    <p>The <code>forget</code> tool deletes by document, by source, or by time range — an afternoon, a week, a whole month of your register, gone on request. Two properties matter. It always asks before it acts; your AI cannot quietly decide your Tuesday should disappear. And it is a hard delete, not a hidden flag: the rows are purged, the vectors are swept, and a document that was mid-embedding when you forgot it stays forgotten — we fixed the race where the indexer could resurrect a deleted memory seconds after the funeral.</p>
+
+    <h2>Constitutional forgetting</h2>
+
+    <p>Some things are erased before you could even ask. Meeting audio is destroyed the moment the transcript lands — that story is <a href="/blog/audio-purged-when-words-land/">entry no. 004</a>. The recording never becomes a thing you have to remember to delete.</p>
+
+    <h2>The cost, honestly</h2>
+
+    <p>Forgetting is real loss. A purged month answers no questions, ever, and the rolling window will occasionally eat something you wanted on day thirty-one. We could soften this — trash cans, soft deletes, a ninety-day undo. We decided not to, because every undo is a copy, and every copy is a place your memory lives that you no longer control. A delete that costs nothing deletes nothing.</p>
+
+    <p>Total recall is a pitch. A memory you can edit is a possession. The second one is the product.</p>
+  </article>
+
+  <footer>
+    <span>&#9728;&#65039; shyn — a register of your days</span>
+    <span><a href="/blog/">daybook</a> · <a href="/blog/feed.xml">rss</a> · <a href="https://github.com/shyn-labs/shyn">github</a> · <a href="mailto:hello@shyn.day">hello@shyn.day</a></span>
+  </footer>
+</div>
+</body>
+</html>
