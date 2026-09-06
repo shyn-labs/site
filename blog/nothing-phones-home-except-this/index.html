@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>nothing phones home, except this — the shyn daybook</title>
+<meta name="description" content="shyn shipped with a vow it then broke on purpose. What made telemetry acceptable, the two ways our own privacy promise failed a real audit, and why the old entries got a dated note instead of an edit.">
+<link rel="canonical" href="https://shyn.day/blog/nothing-phones-home-except-this/">
+<meta property="og:title" content="nothing phones home, except this">
+<meta property="og:description" content="shyn shipped with a vow it then broke on purpose. What made telemetry acceptable, the two ways our own privacy promise failed a real audit, and why the old entries got a dated note instead of an edit.">
+<meta property="og:url" content="https://shyn.day/blog/nothing-phones-home-except-this/">
+<meta property="og:type" content="article">
+
+<meta name="twitter:card" content="summary">
+<meta name="theme-color" content="#fffdf6" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#10131e" media="(prefers-color-scheme: dark)">
+<link rel="icon" href="/assets/mark.svg" type="image/svg+xml">
+<link rel="alternate" type="application/rss+xml" title="the shyn daybook" href="/blog/feed.xml">
+<style>
+  @font-face { font-family:'Newsreader'; src:url('/fonts/newsreader.woff2') format('woff2');
+    font-weight:200 800; font-style:normal; font-display:swap; }
+  @font-face { font-family:'Newsreader'; src:url('/fonts/newsreader-italic.woff2') format('woff2');
+    font-weight:200 800; font-style:italic; font-display:swap; }
+  * { margin:0; padding:0; box-sizing:border-box; }
+  a { color:inherit; }
+  body {
+    font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif; color:#3a352c;
+    background:linear-gradient(180deg,#fffdf6 0%,#fff3d6 5%,#f7f2e6 12%,#f4efe3 55%,#f0e9d6 78%,#f6e3b8 92%,#f3c87f 100%);
+  }
+  .grain { position:fixed; inset:0; pointer-events:none; opacity:.05; z-index:50;
+    background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='140' height='140'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2'/%3E%3C/filter%3E%3Crect width='140' height='140' filter='url(%23n)' opacity='1'/%3E%3C/svg%3E"); }
+  .act { max-width:720px; margin:0 auto; padding:0 24px; }
+  .masthead { display:flex; justify-content:space-between; align-items:baseline; padding:20px 0 10px; gap:14px;
+    border-bottom:2.5px solid rgba(58,53,44,.75); font-size:11.5px; letter-spacing:.13em; text-transform:uppercase; color:#6d6553; }
+  .masthead a { text-decoration:none; }
+  .masthead .vol { font-family:'Newsreader',Georgia,serif; font-style:italic; text-transform:none; letter-spacing:0; font-size:13px; }
+  .kicker { font-size:11px; letter-spacing:.32em; text-transform:uppercase; font-weight:600; color:#c98a2d; margin-top:64px; }
+  h1 { font-family:'Newsreader',Georgia,serif; font-optical-sizing:auto; letter-spacing:-.02em;
+    font-weight:560; font-size:clamp(38px,6vw,58px); line-height:1.04; color:#2e2a22; margin:14px 0 10px; }
+  h1 em { font-style:italic; font-weight:400; color:#c98a2d; }
+  .dateline { font-size:12.5px; letter-spacing:.13em; text-transform:uppercase; color:#a08e68; margin-bottom:44px; }
+  article { font-size:17px; line-height:1.72; color:#4a453a; }
+  article p { margin:0 0 22px; }
+  article h2 { font-family:'Newsreader',Georgia,serif; font-weight:620; font-size:27px; color:#2e2a22;
+    letter-spacing:-.01em; margin:46px 0 14px; }
+  article strong { color:#2e2a22; }
+  article ul { margin:0 0 22px 22px; }
+  article li { margin-bottom:10px; }
+  article code { font-family:ui-monospace,'SF Mono',Menlo,Consolas,monospace; font-size:.86em;
+    background:rgba(58,53,44,.07); border-radius:6px; padding:2px 6px; }
+  pre { background:#1c2030; color:#e8e3d5; border-radius:14px; padding:18px 22px; overflow-x:auto;
+    font-size:13.5px; line-height:1.6; margin:0 0 22px; }
+  pre code { background:none; padding:0; font-size:inherit; color:inherit; }
+  blockquote { font-family:'Newsreader',Georgia,serif; font-style:italic; font-size:19px; line-height:1.6;
+    color:#6d6553; border-left:3px solid #e2b96e; padding:2px 0 2px 22px; margin:0 0 22px; }
+  figure { margin:34px 0; }
+  figure img { width:100%; height:auto; display:block; border-radius:16px;
+    border:1px solid rgba(58,53,44,.14); box-shadow:0 24px 70px rgba(120,90,20,.14); }
+  figure.narrow { max-width:340px; margin-left:auto; margin-right:auto; }
+  figcaption { font-size:13px; color:#a08e68; margin-top:12px; line-height:1.55; text-align:center; }
+  footer { display:flex; justify-content:space-between; gap:14px; flex-wrap:wrap; padding:26px 0 40px; margin-top:70px;
+    border-top:2.5px solid rgba(58,53,44,.6); font-size:12px; letter-spacing:.1em; text-transform:uppercase; color:#6d6553; }
+  footer a { text-decoration:none; }
+  @media (max-width:560px){ article{font-size:16px} .masthead{font-size:9.5px} }
+</style>
+</head>
+<body>
+<div class="grain"></div>
+<div class="act">
+  <div class="masthead">
+    <span><a href="/">&#9728;&#65039; shyn</a></span>
+    <span class="vol"><a href="/blog/">the daybook</a></span>
+    <span>All entries confidential.</span>
+  </div>
+
+  <p class="kicker">entry no. 007</p>
+  <h1>nothing phones home, <em>except this</em></h1>
+  <p class="dateline">6 September 2026 · the shyn daybook</p>
+
+  <article>
+    <p>Homebrew prints a cask's caveats at the end of an install. So for a few days, the release that added telemetry to shyn finished by telling you, in our own words:</p>
+
+    <pre><code>Everything shyn captures stays on your Mac. Nothing phones home.</code></pre>
+
+    <p>The first sentence was true. The second had been false since the binary above it finished copying.</p>
+
+    <p>We found it by upgrading and reading the output, which is the only way anyone ever sees that surface. Grepping the README, the site and the manifest for the stale claim never reached it, because the cask template lives under <code>packaging/</code>. That is the shape of this whole entry: the code was careful and the prose was behind.</p>
+
+    <h2>Why there is any telemetry at all</h2>
+
+    <p>shyn breaks in ways we cannot predict. Every Mac is a different OS version, different silicon, a different set of permissions granted and denied. We cannot test for that spread, and almost nobody who hits a bug writes in. They just quit the app.</p>
+
+    <p>Beta is when that visibility is worth the most. It is also when a memory product has the least standing to ask for it, which is why the constraints below took longer to build than the feature did.</p>
+
+    <h2>What had to be true first</h2>
+
+    <p><strong>One egress point.</strong> The capture agents and the CLI report to the daemon over the socket that was already there. The daemon is the only process that touches the network. Two senders would make the one audit that matters for this product — what actually leaves this machine — unanswerable, and an unanswerable audit is the same as a bad answer.</p>
+
+    <p><strong>A closed list of event names.</strong> Twenty of them, in <code>packages/daemon/src/analytics.ts</code>. No code path accepts an interpolated name, because interpolated names are how content escapes.</p>
+
+    <p><strong>Properties allow-listed by shape, not filtered by pattern.</strong> Numbers and booleans pass; they cannot carry content. Strings pass only if they are an enumerated value or a known debug field, and that field is then scrubbed. Anything unanticipated is dropped rather than sent. A deny-list has to anticipate every shape content can take, and being wrong once ships someone's document title.</p>
+
+    <p><strong>Off means off now.</strong> Turning it off discards whatever is queued. The promise is &ldquo;off&rdquo;, not &ldquo;off after one more batch&rdquo;.</p>
+
+    <p><strong>Nothing exists before you answer.</strong> No random id is minted and nothing is queued until the first-run dialog has been answered, and declining destroys the id rather than muting it. People upgrading from an older version get asked too. They installed under the previous promise, and sending without ever telling them is the version of this that would actually break trust.</p>
+
+    <h2>The audit our own promise failed</h2>
+
+    <p>The README, the dialog and shyn.day all said analytics never carries content or file paths. Generating real crash payloads instead of imagined ones found two ways that was untrue.</p>
+
+    <p>The first was <code>JSON.parse</code>, which embeds a snippet of what it parsed into its own error message:</p>
+
+    <pre><code>Unexpected token 'S', "SHYN_POSTH"... is not valid JSON</code></pre>
+
+    <p>Those are the opening characters of a file, verbatim. For a malformed note or a hand-edited config, that is content, and we were sending it.</p>
+
+    <p>The second was the path scrubber, which only knew about <code>/Users</code> and <code>/home</code>. A project living under <code>/Volumes/&lt;client&gt;/</code> or <code>/opt/</code> went through untouched, and directory names are content — client names and project names live there.</p>
+
+    <p>Now every absolute path collapses to <code>[path]</code> unless it is a runtime internal, and quoted spans of six characters or more are redacted, because quotes are how titles and parse snippets travel. Diagnostic value survives on purpose, with a test pinning it: <code>ENOENT</code> still arrives, so does <code>readFileSync (node:fs:539:20)</code>. What is gone is only the part that identified you.</p>
+
+    <p>One detail worth admitting. The first version of that test asserted Node echoes the entire parsed text. It truncates to about ten characters, so the test's precondition was wrong while the scrubber was right. We fixed the test, not the code. The opposite mistake is the one that ships.</p>
+
+    <h2>Counting what went stale</h2>
+
+    <p>Five claims on the home page: the meta description, the structured data, the hero line, the lead of the vault section, and the vow itself. Three in the README. Two daybook entries. One cask.</p>
+
+    <p><a href="/blog/shyn-caught-us-staging-its-own-demo/">Entry 001</a> and <a href="/blog/why-shyn-exists/">entry 002</a> got a dated note above the prose rather than an edit. They were true when they were published, and quietly rewriting them to agree with today would erase the record of what changed, which is a worse dishonesty than a stale sentence standing with a date next to it.</p>
+
+    <h2>What we will not call it</h2>
+
+    <p>The dialog ships with the toggle checked. Under GDPR a pre-ticked box is not consent, so calling this opt-in would be a claim our own interface does not support; calling it opt-out would imply we started sending before you saw the choice, which is false. So every surface says the same plain thing: <strong>you choose on first run</strong>. Describing the mechanism stays accurate whatever the default turns out to be later.</p>
+
+    <h2>What did not move</h2>
+
+    <p>Captured content still never leaves this machine. Not screen text, not transcripts, not notes, not what you searched for, not your file names, under any setting. The events go to PostHog, on their US host, and the twenty names in <code>analytics.ts</code> are the entire surface — thirty seconds of reading beats any assurance we could write here, this one included.</p>
+
+    <p>The sentence we most wanted to keep is gone from every surface we control. It stopped being true, and a good line is not worth more than that.</p>
+  </article>
+
+  <footer>
+    <span>&#9728;&#65039; shyn — a register of your days</span>
+    <span><a href="/blog/">daybook</a> · <a href="/blog/feed.xml">rss</a> · <a href="https://github.com/shyn-labs/shyn">github</a> · <a href="mailto:hello@shyn.day">hello@shyn.day</a></span>
+  </footer>
+</div>
+</body>
+</html>

@@ -6,7 +6,14 @@
   <description>Entries from the making of shyn — a local-first memory for your Mac.</description>
   <language>en</language>
   <atom:link href="https://shyn.day/blog/feed.xml" rel="self" type="application/rss+xml"/>
-  <lastBuildDate>Thu, 03 Sep 2026 09:00:00 +0000</lastBuildDate>
+  <lastBuildDate>Sun, 06 Sep 2026 09:00:00 +0000</lastBuildDate>
+  <item>
+    <title>nothing phones home, except this</title>
+    <link>https://shyn.day/blog/nothing-phones-home-except-this/</link>
+    <guid>https://shyn.day/blog/nothing-phones-home-except-this/</guid>
+    <pubDate>Sun, 06 Sep 2026 09:00:00 +0000</pubDate>
+    <description>shyn shipped with the line “nothing phones home”. v0.5.0-alpha added anonymous crash and usage reporting, which made that false — and the cask still printed the old vow at the end of every install. What the egress design had to satisfy, the two ways “never content, never file paths” turned out to be untrue when we generated real crash payloads, the count of stale claims, and why we will not call a pre-checked box opt-in.</description>
+  </item>
   <item>
     <title>forgetting is a feature</title>
     <link>https://shyn.day/blog/forgetting-is-a-feature/</link>
