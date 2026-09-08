@@ -6,7 +6,14 @@
   <description>Entries from the making of shyn — a local-first memory for your Mac.</description>
   <language>en</language>
   <atom:link href="https://shyn.day/blog/feed.xml" rel="self" type="application/rss+xml"/>
-  <lastBuildDate>Sun, 06 Sep 2026 09:00:00 +0000</lastBuildDate>
+  <lastBuildDate>Tue, 08 Sep 2026 09:00:00 +0000</lastBuildDate>
+  <item>
+    <title>the far side has to speak</title>
+    <link>https://shyn.day/blog/the-far-side-has-to-speak/</link>
+    <guid>https://shyn.day/blog/the-far-side-has-to-speak/</guid>
+    <pubDate>Tue, 08 Sep 2026 09:00:00 +0000</pubDate>
+    <description>Every recorder asks permission once and then trusts itself forever. shyn asks the audio instead: nothing is kept unless voice arrives on the system channel — someone who is not you. Music does not qualify, a video does not, and neither do you thinking out loud. The cost is a room, which has no far side at all.</description>
+  </item>
   <item>
     <title>nothing phones home, except this</title>
     <link>https://shyn.day/blog/nothing-phones-home-except-this/</link>
